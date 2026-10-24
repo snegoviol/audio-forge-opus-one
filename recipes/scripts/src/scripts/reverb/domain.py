@@ -1,28 +1,30 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/reverb/domain.py
+# ==================================================================================================
+
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+# ==================================================================================================
 
 OUTPUT_NAME = "reverbed.flac"
 _WET_SUFFIX = "-wet.wav"
 _PLUGIN_RELATIVE = Path("lib") / "vst3" / "DuskVerb.vst3"
 PROGRAM = "Bright Hall"
 
+# ==================================================================================================
 
 def validate_send(send: float) -> float:
     """
@@ -47,6 +49,7 @@ def validate_send(send: float) -> float:
         raise ValueError(f"send must be a non-negative finite number: {send}")
     return send
 
+# ==================================================================================================
 
 def plugin_path() -> Path:
     """
@@ -67,6 +70,7 @@ def plugin_path() -> Path:
         raise FileNotFoundError(f"DuskVerb.vst3 not found: {path}")
     return path
 
+# ==================================================================================================
 
 def stem_path(piece_path: Path, part: str | None = None) -> Path:
     """
@@ -89,6 +93,7 @@ def stem_path(piece_path: Path, part: str | None = None) -> Path:
         return piece_path / "score.flac"
     return piece_path / f"score-{part}.flac"
 
+# ==================================================================================================
 
 def require_stems(piece_path: Path, parts: tuple[str, ...] | None = None) -> list[Path]:
     """
@@ -123,6 +128,7 @@ def require_stems(piece_path: Path, parts: tuple[str, ...] | None = None) -> lis
             raise FileNotFoundError(f"{path.name} not found: {path}")
     return paths
 
+# ==================================================================================================
 
 def render_wet(source_path: Path, wet_path: Path) -> None:
     """
@@ -167,6 +173,7 @@ def render_wet(source_path: Path, wet_path: Path) -> None:
             f"plugalyzer process failed for {source_path}{suffix}"
         )
 
+# ==================================================================================================
 
 def mix_weighted(
     layers: list[tuple[Path, float]],
@@ -262,6 +269,7 @@ def mix_weighted(
         suffix = f": {detail}" if detail else ""
         raise RuntimeError(f"ffmpeg amix failed{suffix}")
 
+# ==================================================================================================
 
 def reverb_stems(
     dry_paths: list[Path],
@@ -336,3 +344,5 @@ def reverb_stems(
         mix_weighted(layers, output_path, balances=balances)
 
     return output_path
+
+# ==================================================================================================

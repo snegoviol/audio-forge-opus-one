@@ -1,28 +1,30 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/normalize_loudness.py
+# ==================================================================================================
+
 import argparse
 import subprocess
 import sys
 from pathlib import Path
 from scripts.paths import find_project_root, resolve_piece_path
 
+# ==================================================================================================
+
 _SOURCE_NAME = "reverbed.flac"
 _OUTPUT_NAME = "normalized.flac"
 _SAMPLE_RATE = 48000
 
+# ==================================================================================================
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """
@@ -62,6 +64,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     return parser.parse_args(argv)
 
+# ==================================================================================================
 
 def _apply_gain(source_path: Path, output_path: Path, gain_db: float) -> None:
     """
@@ -110,6 +113,7 @@ def _apply_gain(source_path: Path, output_path: Path, gain_db: float) -> None:
             f"ffmpeg volume failed for {source_path}{suffix}"
         )
 
+# ==================================================================================================
 
 def normalize_loudness(piece_dir: str, gain_db: float) -> Path:
     """
@@ -147,6 +151,7 @@ def normalize_loudness(piece_dir: str, gain_db: float) -> Path:
     _apply_gain(source_path, output_path, gain_db)
     return output_path
 
+# ==================================================================================================
 
 def main(argv: list[str] | None = None) -> int:
     """
@@ -180,6 +185,9 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     return 0
 
+# ==================================================================================================
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# ==================================================================================================

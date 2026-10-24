@@ -1,6 +1,26 @@
+<!--    
+    ================================================================================================
+    
+    Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
+    
+    Dedicated to the public domain under the Creative Commons
+    CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+    You may obtain a copy of the Dedication at
+    
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+    ================================================================================================
+    docs/02-project-structure.md
+    ================================================================================================
+-->
+
 # II. Detailed Project Structure
 
 > *This document describes the logical organization of the project codebase as a Pixi workspace for the audio release pipeline.*
+
+<!--    
+    ================================================================================================
+-->
 
 ## Repository Layout
 
@@ -24,23 +44,29 @@ audio-forge-opus-one/
 │   ├── plugalyzer/     # Offline plugin host (rattler-build recipe).
 │   └── duskverb/       # DuskVerb VST3 (rattler-build recipe).
 │
+├── LICENSES/           # Full texts of all licenses used in the project.
+│   │
+│   ├── Apache-2.0.txt  # Apache License, Version 2.0.
+│   ├── CC-BY-4.0.txt   # Creative Commons Attribution 4.0 International
+│   │                   # Public License.
+│   └── CC0-1.0.txt     # Creative Commons CC0 1.0 Universal Public Domain
+│                       # Dedication.
+│
+├── LICENSE.txt         # Licensing overview: states which license applies
+│                       # to which files; refers to `LICENSES/`.
+│
 ├── metadata.toml       # Shared release metadata (used by workspace CLIs).
 │
 ├── pixi.toml           # Workspace manifest: channels, dependencies, and tasks.
 │
-├── pixi.lock           # Fully resolved and reproducible dependency lockfile.
-│
-├── LICENSE-CC-BY-4.0   # Full text of the Creative Commons Attribution 4.0
-│                       # International License.
-│
-├── LICENSE-APACHE-2.0  # Full text of the Apache License, Version 2.0.
-│
-└── NOTICE              # Preferred attribution when reusing Apache-2.0 licensed
-                        # portions of this project, plus preserved
-                        # NOTICE text from upstream works reused here.
+└── pixi.lock           # Fully resolved and reproducible dependency lockfile.
 ```
 
 Source files are documented with detailed docstrings and/or inline comments to explain the code.
+
+<!--    
+    ================================================================================================
+-->
 
 ## Workspace Overview
 
@@ -85,6 +111,10 @@ No. 5 uses `score-Piano.flac`, `score-Soprano.flac`, and `score-Contralto.flac` 
 > **Note:**  
 > `*.mscz` and `*.flac` are gitignored. After a fresh clone the piece directories are empty until `fetch-mscz-scores` and the MuseScore export / audio pipeline are run.
 
+<!--    
+    ================================================================================================
+-->
+
 ### 2. `recipes/scripts/`
 
 Conda package recipe for the audio pipeline CLIs. Exposes five CLI entry points consumed by the Pixi tasks in `pixi.toml`. Pulls `ffmpeg`, `mutagen`, `plugalyzer`, and `duskverb` as run dependencies.
@@ -112,8 +142,8 @@ scripts/
     │   │                               # narrow balance Piano L10 / Harp R10 /
     │   │                               # Soprano C.
     │   └── no5.py                      # No. 5: Piano / Soprano / Contralto stems;
-                                        # narrow balance Soprano L10 / Piano C /
-                                        # Contralto R10.
+    │                                   # narrow balance Soprano L10 / Piano C /
+    │                                   # Contralto R10.
     │
     ├── normalize_loudness.py           # normalize-loudness CLI: required `--gain`
     │                                   # (from measure-loudness) applied to
@@ -128,6 +158,10 @@ scripts/
 ```
 
 Piece-oriented CLIs accept a bare directory name (for example `Op-1_No-1_Believe`) and resolve paths relative to the workspace root. They expect the fixed file names from the piece layout above and will fail if those names are missing or renamed. They share `paths.py` for consistent project-root discovery and `metadata.toml` access.
+
+<!--    
+    ================================================================================================
+-->
 
 ### 3. `recipes/musescore/`
 
@@ -144,6 +178,10 @@ musescore/
                         # `musescore3` into PREFIX/bin.
 ```
 
+<!--    
+    ================================================================================================
+-->
+
 ### 4. `recipes/plugalyzer/`
 
 Conda packaging recipe for Plugalyzer 0.5.0. Provides the `plugalyzer` binary used by the reverb CLI to render a Bus Mode (100% wet) DuskVerb stem offline.
@@ -154,6 +192,10 @@ plugalyzer/
 │
 └── recipe.yaml         # rattler-build recipe: upstream Linux zip, install into PREFIX/bin.
 ```
+
+<!--    
+    ================================================================================================
+-->
 
 ### 5. `recipes/duskverb/`
 
@@ -166,3 +208,7 @@ duskverb/
 └── recipe.yaml         # rattler-build recipe: upstream Linux zip, install VST3/LV2
                         # under PREFIX/lib.
 ```
+
+<!--    
+    ================================================================================================
+-->

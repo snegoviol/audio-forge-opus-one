@@ -1,18 +1,17 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/reverb/main.py
+# ==================================================================================================
+
 import argparse
 import sys
 from scripts.reverb.domain import OUTPUT_NAME, PROGRAM
@@ -22,6 +21,7 @@ from scripts.reverb.no5 import PIECE_DIR as NO5_DIR
 from scripts.reverb.no5 import reverb_no5
 from scripts.reverb.single import reverb_single
 
+# ==================================================================================================
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """
@@ -89,6 +89,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     return parser.parse_args(argv)
 
+# ==================================================================================================
 
 def _require_stem_sends(
     label: str,
@@ -120,6 +121,7 @@ def _require_stem_sends(
         raise ValueError(f"{label} requires {flags}")
     return {name: float(value) for name, value in required.items()}
 
+# ==================================================================================================
 
 def main(argv: list[str] | None = None) -> int:
     """
@@ -193,6 +195,9 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     return 0
 
+# ==================================================================================================
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# ==================================================================================================

@@ -1,6 +1,26 @@
+<!--    
+    ================================================================================================
+    
+    Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
+    
+    Dedicated to the public domain under the Creative Commons
+    CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+    You may obtain a copy of the Dedication at
+    
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+    ================================================================================================
+    docs/01-dependencies.md
+    ================================================================================================
+-->
+
 # I. Dependencies Overview
 
 > *This document describes the runtime dependencies required by Audio Forge for Opus One — Pixi, build backends, and workspace packages.*
+
+<!--    
+    ================================================================================================
+-->
 
 ## System Dependencies
 
@@ -10,6 +30,10 @@
 | pixi-build-python | [prefix‑dev/pixi](https://github.com/prefix-dev/pixi) | Pixi build backend for Python packages | Builds the `scripts` conda package from `pyproject.toml`. |
 | pixi-build-rattler-build | [prefix‑dev/pixi](https://github.com/prefix-dev/pixi) | Pixi build backend for rattler-build recipes | Builds the `musescore`, `duskverb`, and `plugalyzer` conda packages from `recipe.yaml` files. |
 
+<!--    
+    ================================================================================================
+-->
+
 ## Pixi Dependencies
 
 | Dependency | Source | What it is | Role in the project | Upstream / runtime repositories |
@@ -18,3 +42,7 @@
 | `musescore` | [recipes/musescore/<br>pixi.toml](../recipes/musescore/pixi.toml) | Music notation application | Exports source scores to FLAC (`score.flac` or per-part `score-<Part>.flac`). | - [Jojo‑Schmitz/MuseScore](https://github.com/Jojo-Schmitz/MuseScore) |
 | `plugalyzer` | [recipes/plugalyzer/<br>pixi.toml](../recipes/plugalyzer/pixi.toml) | Command-line audio plugin host | Offline-renders DuskVerb (Bus Mode / 100% wet) for the reverb pipeline. | - [CrushedPixel/Plugalyzer](https://github.com/CrushedPixel/Plugalyzer) |
 | `duskverb` | [recipes/duskverb/<br>pixi.toml](../recipes/duskverb/pixi.toml) | Algorithmic reverb VST3 plugin | Bright Hall preset used as the send/return reverb engine. | - [dusk-audio/dusk-audio-plugins](https://github.com/dusk-audio/dusk-audio-plugins) |
+
+<!--    
+    ================================================================================================
+-->

@@ -1,18 +1,17 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/fetch_mscz_scores.py
+# ==================================================================================================
+
 import argparse
 import sys
 import urllib.error
@@ -20,11 +19,14 @@ import urllib.request
 from pathlib import Path
 from scripts.paths import find_project_root
 
-_REPO = "Sierra-Arn/score-forge-opus-one"
+# ==================================================================================================
+
+_REPO = "snegoviol/score-forge-opus-one"
 _REF = "main"
 _SCORE_NAME = "score.mscz"
 _RAW_HOST = "https://raw.githubusercontent.com"
 
+# ==================================================================================================
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """
@@ -49,6 +51,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     return parser.parse_args(argv)
 
+# ==================================================================================================
 
 def _score_url(piece_dir: str) -> str:
     """
@@ -68,6 +71,7 @@ def _score_url(piece_dir: str) -> str:
         f"{_RAW_HOST}/{_REPO}/{_REF}/composizioni/{piece_dir}/{_SCORE_NAME}"
     )
 
+# ==================================================================================================
 
 def _download_score(url: str, dest: Path) -> None:
     """
@@ -102,6 +106,7 @@ def _download_score(url: str, dest: Path) -> None:
 
     dest.write_bytes(data)
 
+# ==================================================================================================
 
 def fetch_mscz_scores(project_root: Path | None = None) -> int:
     """
@@ -143,6 +148,7 @@ def fetch_mscz_scores(project_root: Path | None = None) -> int:
 
     return downloaded
 
+# ==================================================================================================
 
 def main(argv: list[str] | None = None) -> int:
     """
@@ -171,6 +177,9 @@ def main(argv: list[str] | None = None) -> int:
     print(f"done: {count} file(s)")
     return 0
 
+# ==================================================================================================
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# ==================================================================================================

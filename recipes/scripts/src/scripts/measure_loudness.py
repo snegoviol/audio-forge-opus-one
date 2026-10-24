@@ -1,28 +1,30 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/measure_loudness.py
+# ==================================================================================================
+
 import argparse
 import re
 import subprocess
 import sys
 from pathlib import Path
 
+# ==================================================================================================
+
 # YouTube-oriented reference points
 _REF_I = -14.0
 _REF_TP = -1.0
 
+# ==================================================================================================
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """
@@ -51,6 +53,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     return parser.parse_args(argv)
 
+# ==================================================================================================
 
 def _parse_ebur128_summary(stderr: str) -> tuple[float, float, float]:
     """
@@ -107,6 +110,7 @@ def _parse_ebur128_summary(stderr: str) -> tuple[float, float, float]:
             "ffmpeg ebur128 summary contained a non-numeric measurement"
         ) from exc
 
+# ==================================================================================================
 
 def measure_flac(source_path: Path) -> dict[str, float | bool | str]:
     """
@@ -188,6 +192,7 @@ def measure_flac(source_path: Path) -> dict[str, float | bool | str]:
         "recommended_i": recommended_i,
     }
 
+# ==================================================================================================
 
 def _print_report(report: dict[str, float | bool | str]) -> None:
     """
@@ -226,6 +231,7 @@ def _print_report(report: dict[str, float | bool | str]) -> None:
         f"(I ≈ {report['recommended_i']:.2f} LUFS at TP≤{_REF_TP:g})."
     )
 
+# ==================================================================================================
 
 def main(argv: list[str] | None = None) -> int:
     """
@@ -261,6 +267,9 @@ def main(argv: list[str] | None = None) -> int:
     _print_report(report)
     return 0
 
+# ==================================================================================================
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# ==================================================================================================

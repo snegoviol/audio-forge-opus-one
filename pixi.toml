@@ -1,11 +1,23 @@
 # ==================================================================================================
+#
+# Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
+#
+# Dedicated to the public domain under the Creative Commons
+# CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+# You may obtain a copy of the Dedication at
+#
+# https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+#
+# ==================================================================================================
+# pixi.toml
+# ==================================================================================================
 
 [workspace]
-authors = ["Sierra-Arn <unweariedheart@gmail.com>"]
+authors = ["Ilya Snegov <unweariedheart@gmail.com>"]
 name = "audio-forge-opus-one"
 version = "0.1.0"
-license = "Apache-2.0 AND CC-BY-4.0"
-repository = "https://github.com/Sierra-Arn/audio-forge-opus-one"
+license = "Apache-2.0 AND CC-BY-4.0 AND CC0-1.0"
+repository = "https://github.com/snegoviol/audio-forge-opus-one"
 
 channels = ["https://prefix.dev/conda-forge"]
 platforms = ["linux-64"]

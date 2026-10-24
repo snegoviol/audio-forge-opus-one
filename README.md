@@ -1,9 +1,33 @@
+<!--    
+    ================================================================================================
+    
+    Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
+    
+    Dedicated to the public domain under the Creative Commons
+    CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+    You may obtain a copy of the Dedication at
+    
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+    ================================================================================================
+    README.md
+    ================================================================================================
+-->
+
 # Audio Forge for Opus One
 
-*A Pixi workspace for building publication-ready audio files of «Sierra Arn — Composizioni, Op. 1» from MuseScore sources.*
+> *A Pixi workspace for building publication-ready audio files of «Sierra Arn — Composizioni, Op. 1» from MuseScore sources.*
+
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](#license)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](#license)
+[![License: CC0 1.0](https://img.shields.io/badge/License-CC0%201.0-blue.svg)](#license)
 
 > **Note:**  
-> If you only need the finished FLAC audio and do not want to set up this workspace locally, download them from the [FLAC release](https://github.com/Sierra-Arn/audio-forge-opus-one/releases/tag/v2026.09.15). The MuseScore sources (`.mscz`) live in [score-forge-opus-one](https://github.com/Sierra-Arn/score-forge-opus-one).
+> If you only need the finished FLAC audio and do not want to set up this workspace locally, download them from the [FLAC release](https://github.com/snegoviol/audio-forge-opus-one/releases/tag/v2026.09.15). The MuseScore sources (`.mscz`) live in [score-forge-opus-one](https://github.com/snegoviol/score-forge-opus-one).
+
+<!--    
+    ================================================================================================
+-->
 
 ## Project Structure at a Glance
 
@@ -20,38 +44,46 @@ audio-forge-opus-one/
 ├── docs/               # Technical documentation covering workspace dependencies,
 │                       # and detailed project structure.
 │
+├── LICENSES/           # Full texts of all licenses used in the project.
+│
+├── LICENSE.txt         # Licensing overview: which license applies to which files.
+│
 ├── metadata.toml       # Shared release metadata (used by workspace CLIs).
 │
 ├── pixi.toml           # Workspace manifest: channels, dependencies, and tasks.
 │
-├── pixi.lock           # Fully resolved and reproducible dependency lockfile.
-│
-├── LICENSE-CC-BY-4.0   # Full text of the Creative Commons Attribution 4.0
-│                       # International License.
-│
-├── LICENSE-APACHE-2.0  # Full text of the Apache License, Version 2.0.
-│
-└── NOTICE              # Preferred attribution when reusing Apache-2.0 licensed
-                        # portions of this project, plus preserved
-                        # NOTICE text from upstream works reused here.
+└── pixi.lock           # Fully resolved and reproducible dependency lockfile.
 ```
+
+<!--    
+    ================================================================================================
+-->
 
 ## Quick Start
 
 ### I. Prerequisites
 
-- [Pixi](https://pixi.sh/latest/) package manager.
-- GNU/Linux-based system on `x86_64` architecture.
+| Component            | Requirement                               |
+| :------------------- | :---------------------------------------- |
+| **Package Manager**  | [`Pixi`](https://pixi.prefix.dev/latest/) |
+| **Operating System** | GNU/Linux-based system                    |
+| **Architecture**     | `x86_64`                                  |
 
 > **Note:**  
-> These prerequisites are not strict requirements but describe the environment used for development. The project can be set up in alternative environments with different package managers, or operating systems if needed.
+> These are not strict requirements, but rather the baseline environment where the code is 
+guaranteed to run out of the box. Alternative setups are possible but may require manual 
+configuration.
+
+<!--    
+    ================================================================================================
+-->
 
 ### II. Setup
 
 1. **Clone the repository**
 
     ```bash
-    git clone git@github.com:Sierra-Arn/audio-forge-opus-one.git
+    git clone https://github.com/snegoviol/audio-forge-opus-one.git
     cd audio-forge-opus-one
     ```
 
@@ -71,11 +103,15 @@ audio-forge-opus-one/
     pixi shell
     ```
 
-4. **Fetch MuseScore sources from [score-forge-opus-one](https://github.com/Sierra-Arn/score-forge-opus-one)**
+4. **Fetch MuseScore sources from [score-forge-opus-one](https://github.com/snegoviol/score-forge-opus-one)**
 
     ```bash
     pixi run fetch-mscz-scores
     ```
+
+<!--    
+    ================================================================================================
+-->
 
 ### III. Build
 
@@ -121,6 +157,10 @@ With the environment activated and the MuseScore sources in place, publication-r
         > - If individual parts are checked instead, it writes one file per part as `score-<Part>.flac`  
         > (for example `score-Piano.flac`, `score-Soprano.flac`).
 
+<!--    
+    ================================================================================================
+-->
+
 3. **Close MuseScore**
 
     Close the application via the window close button in the MuseScore GUI.
@@ -150,10 +190,21 @@ With the environment activated and the MuseScore sources in place, publication-r
 > Those tasks invoke the audio pipeline CLIs. Every file is fully documented with detailed docstrings:
 > - [Pipeline CLIs](./recipes/scripts/src/scripts/)
 
+<!--    
+    ================================================================================================
+-->
+
 ## License
 
-Every file in this project is licensed under the [Apache License, Version 2.0](LICENSE-APACHE-2.0).
+Each file in this repository is licensed under one of the following licenses:
 
-The MuseScore sources (`.mscz`) are obtained from [score-forge-opus-one](https://github.com/Sierra-Arn/score-forge-opus-one) and are licensed under the [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY-4.0). 
+- [Apache License, Version 2.0](LICENSES/Apache-2.0.txt),
+- [Creative Commons Attribution 4.0 International Public License](LICENSES/CC-BY-4.0.txt),
+- [Creative Commons CC0 1.0 Universal Public Domain Dedication](LICENSES/CC0-1.0.txt).
 
-All files generated from the `.mscz` files and all files further derived from those outputs — including audio produced in this workspace — are also licensed under the [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY-4.0).
+The applicable license is stated in the header comment of each file. 
+See [LICENSE.txt](LICENSE.txt) for details.
+
+<!--    
+    ================================================================================================
+-->

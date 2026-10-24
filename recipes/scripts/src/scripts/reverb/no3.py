@@ -1,27 +1,29 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/reverb/no3.py
+# ==================================================================================================
+
 from pathlib import Path
 from scripts.paths import find_project_root, resolve_piece_path
 from scripts.reverb.domain import OUTPUT_NAME, require_stems, reverb_stems
+
+# ==================================================================================================
 
 PIECE_DIR = "Op-1_No-3_Abyss"
 PARTS = ("Piano", "Harp", "Soprano")
 # Narrow stage: Piano L10, Harp R10, Soprano center.
 _STEM_PANS = (-0.10, 0.10, 0.0)
 
+# ==================================================================================================
 
 def reverb_no3(piano: float, harp: float, soprano: float) -> Path:
     """
@@ -64,3 +66,5 @@ def reverb_no3(piano: float, harp: float, soprano: float) -> Path:
         output_path,
         pans=list(_STEM_PANS),
     )
+
+# ==================================================================================================
