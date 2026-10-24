@@ -31,6 +31,20 @@
 > | [**Audio Forge Opus One**](https://github.com/snegoviol/audio-forge-opus-one) <br>*(you are here)* | Generating publication-ready audio files | [Audio Release](https://github.com/snegoviol/audio-forge-opus-one/releases/tag/v2026.09.15) |
 > | [**Video Forge Opus One**](https://github.com/snegoviol/video-forge-opus-one) | Generating publication-ready video files | [▶ YouTube Playlist](https://youtube.com/playlist?list=PLAbmQ-iQqaoo&si=DQ8Rovb4TtuZEolb) <br> [Video Release](https://github.com/snegoviol/video-forge-opus-one/releases/tag/v2026.09.15) |
 
+> [!WARNING]  
+> **Project Archived**
+>
+> This project is no longer maintained. Issues and pull requests are not accepted, so please fork the repository if you want to build on it. See the sections below for details.
+> 
+> **Context:**  
+> Originally, the primary goal of this project was to transform raw MuseScore files into publication-ready music. While this could have been done manually, my passion for both music composition and software engineering led me to wrap the entire pipeline in fully reproducible environments. This endeavor served as a practical deep-dive into `rattler build` (via `pixi-build`), allowing me to package complex dependencies from source and orchestrate a robust media pipeline.
+> 
+> **Reason for Archiving:**  
+> With the musical works now fully composed and published, the primary objective of this repository has been successfully achieved, and active development is no longer required. However, this repository remains publicly available as a valuable resource for:
+> - Musicians and producers interested in remixing or studying the underlying composition files.
+> - Programmers looking to bridge the gap between software engineering and music production.
+> - Developers exploring `rattler build` who need a complex, real-world example of building local conda packages and automating media workflows.
+
 <!--    
     ================================================================================================
 -->
