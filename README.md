@@ -22,8 +22,14 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](#license)
 [![License: CC0 1.0](https://img.shields.io/badge/License-CC0%201.0-blue.svg)](#license)
 
-> **Note:**  
-> If you only need the finished FLAC audio and do not want to set up this workspace locally, download them from the [FLAC release](https://github.com/snegoviol/audio-forge-opus-one/releases/tag/v2026.09.15). The MuseScore sources (`.mscz`) live in [score-forge-opus-one](https://github.com/snegoviol/score-forge-opus-one).
+> [!NOTE]  
+> This repository is part of a cohesive trilogy of projects designed to transform raw MuseScore files into publication-ready multimedia formats using fully reproducible environments. Each project handles a specific stage of the pipeline:
+>
+> | Repository | Focus | Result |
+> | :--- | :--- | :--- |
+> | [**Score Forge Opus One**](https://github.com/snegoviol/score-forge-opus-one) | Generating publication-ready PDF scores | [PDF Release](https://github.com/snegoviol/score-forge-opus-one/releases/tag/v2026.09.04) |
+> | [**Audio Forge Opus One**](https://github.com/snegoviol/audio-forge-opus-one) <br>*(you are here)* | Generating publication-ready audio files | [Audio Release](https://github.com/snegoviol/audio-forge-opus-one/releases/tag/v2026.09.15) |
+> | [**Video Forge Opus One**](https://github.com/snegoviol/video-forge-opus-one) | Generating publication-ready video files | [▶ YouTube Playlist](https://youtube.com/playlist?list=PLAbmQ-iQqaoo&si=DQ8Rovb4TtuZEolb) <br> [Video Release](https://github.com/snegoviol/video-forge-opus-one/releases/tag/v2026.09.15) |
 
 <!--    
     ================================================================================================
